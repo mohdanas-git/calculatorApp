@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: rgb(218, 218, 218);
+            margin: 20px;
+            color: white;
+        }
+        .mssg{
+            font-size: 30px;
+        }
+        .calculator-button {
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+        .grey-button {
+        background-color: rgb(51, 51, 51);
+        color: white;
+      }
+
+      .orange-button {
+        background-color: rgb(254, 160, 10);
+        color: white;
+      }
+
+      .clear-button {
+        font-size: 17px;
+      }
+      .mssg{
+        text-align: right;
+        padding: 10px;
+        height: 40px;
+        width: 240px;
+        margin: 0;
+        margin-top: 10px;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+      }
+      .calculator{
+        position: absolute;
+        right: 40%;
+        padding: 1px 0 10px 0 ;
+        background-color: rgb(21, 21, 21);        ;
+        width: 280px;
+        border-radius: 12px;
+      }
+    </style>
+</head>
+<body>
+    <div class = 
+    "calculator">
+    <center>
+    <p class="mssg"></p>
+    <p><button class="calculator-button grey-button" onclick="updateCalc('1')">1</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('2')">2</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('3')">3</button>
+        <button class="calculator-button orange-button" onclick="updateCalc('+')">+</button></p>
+    <p><button class="calculator-button grey-button" onclick="updateCalc('4')">4</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('5')">5</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('6')">6</button>
+        <button class="calculator-button orange-button" onclick="updateCalc('-')">-</button></p>
+    <p><button class="calculator-button grey-button" onclick="updateCalc('7')">7</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('8')">8</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('9')">9</button>
+        <button class="calculator-button orange-button" onclick="updateCalc('*')">*</button></p>
+    <p><button class="calculator-button grey-button" onclick="updateCalc('0')">0</button>
+        <button class="calculator-button grey-button" onclick="updateCalc('.')">.</button>
+        <button class="calculator-button grey-button" onclick="Calc()">=</button>
+        <button class="calculator-button orange-button" onclick="updateCalc('/')">/</button></p>
+        <button class="calculator-button grey-button clear-button" onclick="Clear();">Clear</button>
+    </div>
+</center>
+
+        <script>
+            let val = '';
+            let cal;
+            function updateCalc(cal){
+                val = val + cal;
+                document.querySelector('.mssg').innerHTML = `${val}`;
+            }
+            function Calc(){
+                let temp;
+                document.querySelector('.mssg').innerHTML = `${eval(val)}`;
+                temp = eval(val);
+                val = temp;
+            }
+            function Clear(){
+                val = '';
+                document.querySelector('.mssg').innerHTML = `${val}`;
+            }
+        </script>
+</body>
+</html>
